@@ -81,12 +81,13 @@ if __name__ == "__main__":
     torch.cuda.manual_seed(args.seed)
 
     model = nn.Sequential(
-        nn.Conv2d(1, 16, 4, stride=2, padding=1),
-        nn.ReLU(),
-        nn.Conv2d(16, 32, 4, stride=2, padding=1),
-        nn.ReLU(),
-        Flatten(),
-        nn.Linear(32*7*7,100),
+        #nn.Conv2d(1, 16, 4, stride=2, padding=1),
+        nn.Linear(784,200,bias=5.0),
+	nn.ReLU(),
+        #nn.Conv2d(16, 32, 4, stride=2, padding=1),
+        #nn.ReLU(),
+        #Flatten(),
+        nn.Linear(200,100,bias=20.0),
         nn.ReLU(),
         nn.Linear(100, 10)
     ).cuda()
